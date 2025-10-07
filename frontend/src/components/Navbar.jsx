@@ -88,7 +88,10 @@ const Navbar = () => {
                 {isAdmin() && (
                   <p
                     onClick={() =>
-                      window.open("http://localhost:5173", "_blank")
+                      window.open(
+                        "https://e-commerce-yw7l.vercel.app/",
+                        "_blank"
+                      )
                     }
                     className="cursor-pointer hover:text-black text-blue-600"
                   >
@@ -160,7 +163,7 @@ const Navbar = () => {
           <div
             onClick={() => {
               setVisible(false);
-              window.open("http://localhost:5173", "_blank");
+              window.open("https://e-commerce-yw7l.vercel.app/", "_blank");
             }}
             className="py-2 pl-6 border cursor-pointer text-blue-600"
           >
