@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { assets } from "../assets/assets";
 
 const Footer = () => {
@@ -17,10 +18,38 @@ const Footer = () => {
         <div>
           <p className="text-xl font-medium mb-5">COMPANY</p>
           <ul className="flex flex-col gap-1 text-gray-600">
-            <li>Home</li>
-            <li>About us</li>
-            <li>Delivery</li>
-            <li>Privacy policy</li>
+            <li>
+              <Link
+                to="/"
+                className="hover:text-black transition-colors cursor-pointer"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/about"
+                className="hover:text-black transition-colors cursor-pointer"
+              >
+                About us
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/orders"
+                className="hover:text-black transition-colors cursor-pointer"
+              >
+                Orders
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                className="hover:text-black transition-colors cursor-pointer"
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -28,7 +57,24 @@ const Footer = () => {
           <p className="text-xl font-medium mb-5">GET IN TOUCH</p>
           <ul className="flex flex-col gap-1 text-gray-600">
             <li>+1-212-345-7890</li>
-            <li>contact@forever.com</li>
+            <li>
+              <a
+                href="mailto:contact@forever.com"
+                className="hover:text-black transition-colors cursor-pointer"
+              >
+                contact@forever.com
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://e-commerce-1p4u.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-black transition-colors cursor-pointer text-blue-600"
+              >
+                Admin Panel
+              </a>
+            </li>
           </ul>
         </div>
       </div>

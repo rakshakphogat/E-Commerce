@@ -17,9 +17,8 @@ const LatestCollection = () => {
         <Title text1={"LATEST"} text2={"COLLECTIONS"} />
         <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">
           Discover our newest arrivals featuring the latest trends and timeless
-          classics numquam minima quibusdam labore quia iure, ratione optio
-          officia tempora velit soluta ex asperiores provident amet animi maxime
-          cumque culpa!
+          classics. Each piece is carefully selected to bring you the best in
+          fashion, quality, and style that defines your unique personality.
         </p>
       </div>
 

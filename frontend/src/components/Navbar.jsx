@@ -47,7 +47,7 @@ const Navbar = () => {
         </NavLink>
         <div
           onClick={() =>
-            window.open("https://e-commerce-yw7l.vercel.app", "_blank")
+            window.open("https://e-commerce-1p4u.vercel.app", "_blank")
           }
           className="flex flex-col items-center gap-1 cursor-pointer"
         >
