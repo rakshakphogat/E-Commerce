@@ -89,7 +89,7 @@ const Navbar = () => {
                   <p
                     onClick={() =>
                       window.open(
-                        "https://e-commerce-yw7l.vercel.app/",
+                        "https://e-commerce-1p4u.vercel.app/",
                         "_blank"
                       )
                     }
@@ -163,7 +163,7 @@ const Navbar = () => {
           <div
             onClick={() => {
               setVisible(false);
-              window.open("https://e-commerce-yw7l.vercel.app/", "_blank");
+              window.open("https://e-commerce-1p4u.vercel.app/", "_blank");
             }}
             className="py-2 pl-6 border cursor-pointer text-blue-600"
           >

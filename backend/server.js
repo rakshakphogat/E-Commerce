@@ -20,8 +20,8 @@ app.use(express.json())
 // CORS configuration for production
 const corsOptions = {
     origin: [
-        'https://e-commerce-pi99.vercel.app',
-        'https://e-commerce-yw7l.vercel.app',
+        'https://e-commerce-frontend-five-lemon.vercel.app',
+        'https://e-commerce-1p4u.vercel.app',
         'http://localhost:3000',
         'http://localhost:5173',
         'http://localhost:5174'
