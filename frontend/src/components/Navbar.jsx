@@ -46,7 +46,9 @@ const Navbar = () => {
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
         <div
-          onClick={() => window.open("http://localhost:5174", "_blank")}
+          onClick={() =>
+            window.open("https://e-commerce-yw7l.vercel.app", "_blank")
+          }
           className="flex flex-col items-center gap-1 cursor-pointer"
         >
           <p className="text-blue-600 font-medium">ADMIN</p>
