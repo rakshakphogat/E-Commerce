@@ -13,6 +13,7 @@ const Navbar = () => {
     token,
     setToken,
     setCartItems,
+    isAdmin,
   } = useContext(ShopContext);
 
   const logout = () => {
@@ -44,6 +45,13 @@ const Navbar = () => {
           <p>CONTACT</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
+        <div
+          onClick={() => window.open("http://localhost:5174", "_blank")}
+          className="flex flex-col items-center gap-1 cursor-pointer"
+        >
+          <p className="text-blue-600 font-medium">ADMIN</p>
+          <hr className="w-2/4 border-none h-[1.5px] bg-blue-600 hidden" />
+        </div>
       </ul>
       <div className="flex items-center gap-6">
         <img
@@ -75,6 +83,16 @@ const Navbar = () => {
                 >
                   Orders
                 </p>
+                {isAdmin() && (
+                  <p
+                    onClick={() =>
+                      window.open("http://localhost:5173", "_blank")
+                    }
+                    className="cursor-pointer hover:text-black text-blue-600"
+                  >
+                    Admin Panel
+                  </p>
+                )}
                 <p onClick={logout} className="cursor-pointer hover:text-black">
                   Logout
                 </p>
@@ -137,6 +155,15 @@ const Navbar = () => {
           >
             CONTACT
           </NavLink>
+          <div
+            onClick={() => {
+              setVisible(false);
+              window.open("http://localhost:5173", "_blank");
+            }}
+            className="py-2 pl-6 border cursor-pointer text-blue-600"
+          >
+            ADMIN PANEL
+          </div>
         </div>
       </div>
     </div>

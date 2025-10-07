@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useCallback, useEffect, useState } from "react";
 // import { products } from "../assets/assets";
 import axios from "axios";
 import PropTypes from "prop-types";
@@ -16,6 +16,7 @@ const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [products, setProducts] = useState([]);
   const [token, setToken] = useState("");
+  const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
 
   const addToCart = async (itemId, size) => {
@@ -98,7 +99,7 @@ const ShopContextProvider = (props) => {
     return totalAmount;
   };
 
-  const getProductsData = async () => {
+  const getProductsData = useCallback(async () => {
     try {
       const response = await axios.get(backendUrl + "/api/product/list");
       if (response.data.success) {
@@ -110,34 +111,61 @@ const ShopContextProvider = (props) => {
       console.log(error);
       toast.error(error.message);
     }
-  };
+  }, [backendUrl]);
 
-  const getUserCart = async (token) => {
-    try {
-      const response = await axios.post(
-        backendUrl + "/api/cart/get",
-        {},
-        { headers: { token } }
-      );
-      if (response.data.success) {
-        setCartItems(response.data.cartData);
+  const getUserCart = useCallback(
+    async (token) => {
+      try {
+        const response = await axios.post(
+          backendUrl + "/api/cart/get",
+          {},
+          { headers: { token } }
+        );
+        if (response.data.success) {
+          setCartItems(response.data.cartData);
+        }
+      } catch (error) {
+        console.log(error);
+        toast.error(error.message);
       }
-    } catch (error) {
-      console.log(error);
-      toast.error(error.message);
-    }
+    },
+    [backendUrl]
+  );
+
+  const getUserData = useCallback(
+    async (token) => {
+      try {
+        const response = await axios.get(backendUrl + "/api/user/profile", {
+          headers: { token },
+        });
+        if (response.data.success) {
+          setUserData(response.data.user);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [backendUrl]
+  );
+
+  const isAdmin = () => {
+    return userData && userData.email === "a@gmail.com"; // Admin email from .env
   };
 
   useEffect(() => {
     getProductsData();
-  }, []);
+  }, [getProductsData]);
 
   useEffect(() => {
     if (!token && localStorage.getItem("token")) {
-      setToken(localStorage.getItem("token"));
-      getUserCart(localStorage.getItem("token"));
+      const storedToken = localStorage.getItem("token");
+      setToken(storedToken);
+      getUserCart(storedToken);
+      getUserData(storedToken);
+    } else if (token) {
+      getUserData(token);
     }
-  }, []);
+  }, [token, getUserCart, getUserData]);
 
   const value = {
     products,
@@ -157,6 +185,8 @@ const ShopContextProvider = (props) => {
     token,
     setToken,
     setCartItems,
+    userData,
+    isAdmin,
   };
 
   return (
