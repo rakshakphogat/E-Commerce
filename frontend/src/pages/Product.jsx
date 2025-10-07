@@ -85,8 +85,8 @@ const Product = () => {
           <p className="border px-5 py-3 text-sm">Reviews (122)</p>
         </div>
           <div className="flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sunt numquam quam natus laboriosam aperiam minus, velit iusto molestiae eos consectetur recusandae expedita deserunt optio delectus quod quisquam doloremque ut.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sequi commodi dignissimos cumque iusto aliquid maiores recusandae ipsam suscipit error. Accusamus recusandae eius veritatis officia adipisci doloremque tenetur tempore pariatur!</p>
+            <p>Experience premium quality and exceptional style with our carefully curated product selection. Each item is meticulously crafted using the finest materials to ensure durability, comfort, and timeless appeal that exceeds your expectations.</p>
+            <p>Our products feature innovative design elements, sustainable manufacturing processes, and attention to detail that sets them apart. Enjoy hassle-free returns, fast shipping, and dedicated customer support to make your shopping experience seamless and enjoyable.</p>
           </div>
       </div>
       {/* Display related products */}
